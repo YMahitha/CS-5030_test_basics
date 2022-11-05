@@ -22,6 +22,11 @@ describe('todo test suite', () => {
     
 
     // Write all your test cases here that corresponds to software requirements
+    test("add_todo", () => {
+        todo_service.add_todo({"id": 1, "title": "Learn AngularJS", "completed": false});
+        todo_service.add_todo({"id": 2, "title": "Learn React", "completed": false});
+        expect(todo_service.get_todos().todo.length).toEqual(5);
+    });
 
 
 });
