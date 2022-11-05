@@ -35,8 +35,8 @@ describe('todo test suite', () => {
     
     test("update_todo", () => {
         todo_service.update_todo(1, {"id": 1, "title": "Learn Node", "completed": false});
-        const objx = todo_service.get_todos().todo.findIndex((obj) => obj.id === 2);
-        expect(todo_service.get_todos().todo[objx].title).toEqual("Learn Node");
+        const index = todo_service.get_todos().todo.findIndex((obj) => obj.id === 1);
+        expect(todo_service.get_todos().todo[index].title).toEqual("Learn Node");
     });
 
 
