@@ -27,6 +27,11 @@ describe('todo test suite', () => {
         todo_service.add_todo({"id": 2, "title": "Learn React", "completed": false});
         expect(todo_service.get_todos().todo.length).toEqual(5);
     });
+    
+    test("delete_todo", () => {
+        todo_service.delete_todo(2);
+        expect(todo_service.get_todos().todo.length).toEqual(4);
+    });
 
 
 });
