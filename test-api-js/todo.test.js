@@ -22,6 +22,22 @@ describe('todo test suite', () => {
     
 
     // Write all your test cases here that corresponds to software requirements
+    test("add_todo", () => {
+        todo_service.add_todo({"id": 1, "title": "Learn AngularJS", "completed": false});
+        todo_service.add_todo({"id": 2, "title": "Learn React", "completed": false});
+        expect(todo_service.get_todos().todo.length).toEqual(5);
+    });
+    
+    test("delete_todo", () => {
+        todo_service.delete_todo(2);
+        expect(todo_service.get_todos().todo.length).toEqual(4);
+    });
+    
+    test("update_todo", () => {
+        todo_service.update_todo(1, {"id": 1, "title": "Learn Node", "completed": false});
+        const index = todo_service.get_todos().todo.findIndex((obj) => obj.id === 1);
+        expect(todo_service.get_todos().todo[index].title).toEqual("Learn Node");
+    });
 
 
 });
